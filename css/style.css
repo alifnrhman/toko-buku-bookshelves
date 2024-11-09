@@ -34,6 +34,7 @@ a {
    justify-content: center;
    align-items: center;
    height: 90vh;
+   padding: 0 !important;
 }
 
 .login-container {
@@ -88,19 +89,39 @@ a {
    color: rgb(212, 61, 61);
 }
 
+aside {
+   display: flex;
+   position: relative;
+}
+
+#dashboard-main {
+   padding: 100px 100px 0 400px;
+}
+
 #sidebar {
-   background-color: var(--bg-200);
+   background-color: var(--bg-100);
    box-sizing: border-box;
    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
    height: 100vh;
    padding: 32px;
    width: 300px;
+   position: absolute;
 }
 
 #sidebar .item {
    align-items: center;
    margin: 6px 0;
-   padding: 0 8px;
+   padding: 4px 12px;
+   border-radius: 5px;
+
+   &:hover {
+      background-color: #eeeeee;
+   }
+
+   .active {
+      filter: opacity(100%) !important;
+      font-weight: 600;
+   }
 }
 
 .sidebar-link {
@@ -115,15 +136,92 @@ a {
    padding: 12px 0;
    text-align: center;
 
-   h2 {
+   h3 {
       margin: 0;
       color: var(--accent-200);
-      font-weight: 300;
+      font-weight: 600;
    }
 }
 
 #sidebar-content {
-   display: flex;
-   flex-direction: column;
    padding: 12px 0;
+}
+
+#sidebar-footer {
+   padding: 16px 32px;
+   position: absolute;
+   bottom: 0px;
+   left: 0px;
+   right: 0px;
+
+   hr {
+      margin: 24px 0;
+   }
+}
+
+#sidebar-content .sidebar-link {
+   filter: opacity(50%);
+}
+
+table {
+   margin-top: 24px;
+   border-collapse: collapse;
+   width: 100%;
+   text-align: left;
+
+   td,
+   th {
+      border-bottom: 1px solid var(--bg-300);
+      padding: 8px 12px;
+   }
+}
+
+#dashboard-main header {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+
+   h2 {
+      margin: 0;
+   }
+}
+
+#dashboard-main header button {
+   background-color: var(--accent-200);
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   color: var(--bg-100);
+   padding: 12px 18px;
+   text-align: center;
+
+   &:hover {
+      filter: brightness(90%);
+   }
+}
+
+.action-buttons {
+   display: flex;
+   justify-content: space-around;
+
+   input {
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: var(--bg-100);
+      padding: 10px 16px;
+      text-align: center;
+
+      &:hover {
+         filter: brightness(90%);
+      }
+   }
+}
+
+.update-button {
+   background-color: var(--accent-200);
+}
+
+.delete-button {
+   background-color: rgb(189, 23, 23);
 }

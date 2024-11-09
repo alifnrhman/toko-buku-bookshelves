@@ -5,7 +5,7 @@
       header('location: index.php');
    }
 
-   $currentpage = 'dashboard';
+   $currentpage = 'penulis';
 ?>
 
 <!DOCTYPE html>
@@ -23,10 +23,10 @@
    ?>
    <main id="dashboard-main">
       <header>
-         <h2>Daftar Buku</h2>
+         <h2>Daftar Penulis</h2>
          <button type="submit">
             <i class="fa-solid fa-plus"></i>
-            Tambah Buku
+            Tambah Penulis
          </button>
       </header>
       <div class="daftar-buku">
@@ -34,13 +34,10 @@
             <thead>
                <tr>
                   <th style="width: 10px;">#</th>
-                  <th>Judul Buku</th>
-                  <th>ISBN</th>
-                  <th>Tahun Terbit</th>
-                  <th>Harga</th>
-                  <th>Stok Buku</th>
-                  <th>Publisher</th>
-                  <th>Author</th>
+                  <th>Nama Penulis</th>
+                  <th>Usia</th>
+                  <th>Phone</th>
+                  <th>Email</th>
                   <th style="width: 180px;">Action</th>
                </tr>
             </thead>
@@ -48,11 +45,11 @@
                <?php
                   include("connection.php");
                   
-                  $query = "SELECT * FROM buku ORDER BY id ASC";
+                  $query = "SELECT * FROM penulis ORDER BY id ASC";
                   $result = mysqli_query($connection, $query);
 
                   if (!$result) {
-                     die ("Query error: " . mysqli_errno($connection) . " - " . mysqli_error($connection));
+                     die ("Query Error: " . mysqli_errno($connection) . " - " . mysqli_error($connection));
                   }
 
                   $i = 1;
@@ -60,13 +57,10 @@
                   while($data = mysqli_fetch_assoc($result)){
                      echo "<tr>";
                      echo "<th scope=\"row\">$i</th>";
-                     echo "<td>$data[judul_buku]</td>";
-                     echo "<td>$data[isbn]</td>";
-                     echo "<td>$data[tahun_terbit]</td>";
-                     echo "<td>Rp$data[harga]</td>" ;
-                     echo "<td>$data[stok_buku]</td>";
-                     echo "<td>$data[publisher]</td>";
-                     echo "<td>$data[author]</td>";
+                     echo "<td>$data[nama]</td>";
+                     echo "<td>$data[usia]</td>";
+                     echo "<td>$data[phone]</td>";
+                     echo "<td>$data[email]</td>" ;
                      echo "<th scope=\"row\" class=\"action-buttons\">
                               <form action=\"./update_mahasiswa.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
