@@ -74,7 +74,7 @@ a {
    input[type="submit"] {
       border: 1px solid var(--accent-200);
       background: var(--accent-200);
-      color: var(--primary-100);
+      color: var(--bg-100);
       cursor: pointer;
       padding: 12px;
       font-weight: 600;
@@ -163,7 +163,7 @@ aside {
    filter: opacity(50%);
 }
 
-table {
+.table-data {
    margin-top: 24px;
    border-collapse: collapse;
    width: 100%;
@@ -176,13 +176,25 @@ table {
    }
 }
 
-#dashboard-main header {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
+#dashboard-main {
+   .daftar-page {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
-   h2 {
-      margin: 0;
+      h2 {
+         margin: 0;
+      }
+   }
+
+   .tambah-page {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+
+      h2 {
+         margin: 0 0 0 24px;
+      }
    }
 }
 
@@ -204,7 +216,7 @@ table {
    display: flex;
    justify-content: space-around;
 
-   input {
+   button {
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -224,4 +236,71 @@ table {
 
 .delete-button {
    background-color: rgb(189, 23, 23);
+}
+
+.tambah-buku-container form {
+   table {
+      margin-top: 24px;
+      width: 100%;
+
+      td {
+         padding: 0 12px 0 0;
+         vertical-align: text-top;
+      }
+   }
+
+   input {
+      margin: 4px 0 24px 0;
+      padding: 16px;
+      border: 1px solid var(--bg-300);
+      border-radius: 6px;
+      width: 100%;
+      box-sizing: border-box;
+   }
+
+   select {
+      box-sizing: border-box;
+      margin: 4px 0 24px 0;
+      padding: 15px 16px;
+      border: 1px solid var(--bg-300);
+      border-radius: 6px;
+      width: 100%;
+   }
+}
+
+.buttons {
+   display: flex;
+   justify-content: right;
+   margin-right: 12px;
+
+   input {
+      color: var(--bg-100);
+      padding: 12px !important;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 16px !important;
+   }
+
+   input[type="submit"] {
+      border: 1px solid var(--accent-200);
+      background: var(--accent-200);
+      width: 15%;
+
+      &:hover {
+         filter: opacity(90%);
+      }
+   }
+
+   input[type="reset"] {
+      border: 1px solid var(--accent-200);
+      background-color: var(--bg-200);
+      color: var(--accent-200);
+      width: 10%;
+
+      &:hover {
+         background-color: var(--primary-300);
+         border: 1px solid var(--primary-300);
+         color: var(--bg-200);
+      }
+   }
 }

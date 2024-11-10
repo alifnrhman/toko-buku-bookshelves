@@ -22,22 +22,22 @@
       include('sidebar.php');
    ?>
    <main id="dashboard-main">
-      <header>
+      <header class="daftar-page">
          <h2>Daftar Publisher</h2>
          <button type="submit">
             <i class="fa-solid fa-plus"></i>
-            Tambah Publisher
+            &nbsp; Tambah Publisher
          </button>
       </header>
-      <div class="daftar-buku">
-         <table>
+      <div>
+         <table class="table-data">
             <thead>
                <tr>
                   <th style="width: 10px;">#</th>
                   <th>Nama Publisher</th>
                   <th>Alamat</th>
                   <th>Tahun Berdiri</th>
-                  <th style="width: 180px;">Action</th>
+                  <th style="width: 220px;">Action</th>
                </tr>
             </thead>
             <tbody>
@@ -62,11 +62,17 @@
                      echo "<th scope=\"row\" class=\"action-buttons\">
                               <form action=\"./update_mahasiswa.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
-                                 <input type=\"submit\" name=\"submit\" value=\"Update\" class=\"update-button\">
+                                 <button type=\"submit\" name=\"submit\" class=\"update-button\">
+                                    <i class=\"fa-solid fa-pen-to-square\"></i>
+                                    &nbsp; Update
+                                 </button>
                               </form>
                               <form action=\"./delete_mahasiswa.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
-                                 <input type=\"submit\" name=\"submit\" value=\"Delete\" class=\"delete-button\">
+                                 <button type=\"submit\" name=\"submit\" class=\"delete-button\">
+                                    <i class=\"fa-solid fa-trash\"></i>
+                                    &nbsp; Delete
+                                 </button>
                               </form>
                            </th>";
                      echo "</tr>";

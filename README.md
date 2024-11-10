@@ -8,6 +8,10 @@ A CRUD project with session and cookies, created using PHP.
 
 ## Changelogs
 
+-  v1.2 (11/11/2024)
+   -  [ADD] Hapus buku function
+   -  [ADD] Tambah buku function
+   -  [ADD] Update buku function
 -  v1.1 (10/11/2024)
    -  [CHANGE] Improved sidebar and now in a separate php file
    -  [ADD] List of books page (within the dashboard page), list of publisher page, and list of author page

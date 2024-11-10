@@ -22,15 +22,22 @@
       include('sidebar.php');
    ?>
    <main id="dashboard-main">
-      <header>
+      <?php
+            if (isset($_GET["message"])) {
+               echo "<div>" . $_GET["message"] . "</div>";
+            }
+         ?>
+      <header class="daftar-page">
          <h2>Daftar Buku</h2>
-         <button type="submit">
-            <i class="fa-solid fa-plus"></i>
-            Tambah Buku
-         </button>
+         <a href="tambahbuku.php">
+            <button type="button">
+               <i class="fa-solid fa-plus"></i>
+               &nbsp; Tambah Buku
+            </button>
+         </a>
       </header>
-      <div class="daftar-buku">
-         <table>
+      <div>
+         <table class="table-data">
             <thead>
                <tr>
                   <th style="width: 10px;">#</th>
@@ -41,7 +48,7 @@
                   <th>Stok Buku</th>
                   <th>Publisher</th>
                   <th>Author</th>
-                  <th style="width: 180px;">Action</th>
+                  <th style="width: 220px;">Action</th>
                </tr>
             </thead>
             <tbody>
@@ -55,26 +62,35 @@
                      die ("Query error: " . mysqli_errno($connection) . " - " . mysqli_error($connection));
                   }
 
+                  
                   $i = 1;
                   
                   while($data = mysqli_fetch_assoc($result)){
+                     $harga = number_format($data['harga'], 2, ',', '.');
+                     
                      echo "<tr>";
                      echo "<th scope=\"row\">$i</th>";
                      echo "<td>$data[judul_buku]</td>";
                      echo "<td>$data[isbn]</td>";
                      echo "<td>$data[tahun_terbit]</td>";
-                     echo "<td>Rp$data[harga]</td>" ;
+                     echo "<td>Rp$harga</td>" ;
                      echo "<td>$data[stok_buku]</td>";
                      echo "<td>$data[publisher]</td>";
                      echo "<td>$data[author]</td>";
                      echo "<th scope=\"row\" class=\"action-buttons\">
-                              <form action=\"./update_mahasiswa.php\" method=\"post\">
+                              <form action=\"./updatebuku.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
-                                 <input type=\"submit\" name=\"submit\" value=\"Update\" class=\"update-button\">
+                                 <button type=\"submit\" name=\"submit\" class=\"update-button\" value=\"Update\">
+                                    <i class=\"fa-solid fa-pen-to-square\"></i>
+                                    &nbsp; Update
+                                 </button>
                               </form>
-                              <form action=\"./delete_mahasiswa.php\" method=\"post\">
+                              <form action=\"./hapusbuku.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
-                                 <input type=\"submit\" name=\"submit\" value=\"Delete\" class=\"delete-button\">
+                                 <button type=\"submit\" name=\"submit\" class=\"delete-button\" value=\"Delete\">
+                                    <i class=\"fa-solid fa-trash\"></i>
+                                    &nbsp; Delete
+                                 </button>
                               </form>
                            </th>";
                      echo "</tr>";
