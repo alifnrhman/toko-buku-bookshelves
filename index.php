@@ -48,5 +48,4 @@
 
 <?php
 	include 'connection.php';
-
 ?>

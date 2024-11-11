@@ -26,7 +26,7 @@
             if (isset($_GET["message"])) {
                echo "<div>" . $_GET["message"] . "</div>";
             }
-         ?>
+      ?>
       <header class="daftar-page">
          <h2>Daftar Buku</h2>
          <a href="tambahbuku.php">
@@ -65,7 +65,7 @@
                   
                   $i = 1;
                   
-                  while($data = mysqli_fetch_assoc($result)){
+                  while ($data = mysqli_fetch_assoc($result)){
                      $harga = number_format($data['harga'], 2, ',', '.');
                      
                      echo "<tr>";

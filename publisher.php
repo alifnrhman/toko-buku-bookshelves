@@ -22,12 +22,19 @@
       include('sidebar.php');
    ?>
    <main id="dashboard-main">
+      <?php
+            if (isset($_GET["message"])) {
+               echo "<div>" . $_GET["message"] . "</div>";
+            }
+      ?>
       <header class="daftar-page">
          <h2>Daftar Publisher</h2>
-         <button type="submit">
-            <i class="fa-solid fa-plus"></i>
-            &nbsp; Tambah Publisher
-         </button>
+         <a href="tambahpublisher.php">
+            <button type="button">
+               <i class="fa-solid fa-plus"></i>
+               &nbsp; Tambah Publisher
+            </button>
+         </a>
       </header>
       <div>
          <table class="table-data">
@@ -60,16 +67,16 @@
                      echo "<td>$data[alamat]</td>";
                      echo "<td>$data[tahun_berdiri]</td>";
                      echo "<th scope=\"row\" class=\"action-buttons\">
-                              <form action=\"./update_mahasiswa.php\" method=\"post\">
+                              <form action=\"./updatepublisher.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
-                                 <button type=\"submit\" name=\"submit\" class=\"update-button\">
+                                 <button type=\"submit\" name=\"submit\" class=\"update-button\" value=\"Update\">
                                     <i class=\"fa-solid fa-pen-to-square\"></i>
                                     &nbsp; Update
                                  </button>
                               </form>
-                              <form action=\"./delete_mahasiswa.php\" method=\"post\">
+                              <form action=\"./hapuspublisher.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
-                                 <button type=\"submit\" name=\"submit\" class=\"delete-button\">
+                                 <button type=\"submit\" name=\"submit\" class=\"delete-button\" value=\"Delete\">
                                     <i class=\"fa-solid fa-trash\"></i>
                                     &nbsp; Delete
                                  </button>

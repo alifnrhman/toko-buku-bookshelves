@@ -72,7 +72,6 @@
    }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +93,7 @@
                &nbsp; Kembali
             </button>
          </a>
-         <h2>Tambah Buku</h2>
+         <h2>Update Buku</h2>
       </header>
       <div class="tambah-buku-container">
          <form action="" method="post">

@@ -22,12 +22,19 @@
       include('sidebar.php');
    ?>
    <main id="dashboard-main">
+      <?php
+            if (isset($_GET["message"])) {
+               echo "<div>" . $_GET["message"] . "</div>";
+            }
+      ?>
       <header class="daftar-page">
          <h2>Daftar Penulis</h2>
-         <button type="submit">
-            <i class="fa-solid fa-plus"></i>
-            &nbsp; Tambah Penulis
-         </button>
+         <a href="tambahpenulis.php">
+            <button type="button">
+               <i class="fa-solid fa-plus"></i>
+               &nbsp; Tambah Penulis
+            </button>
+         </a>
       </header>
       <div>
          <table class="table-data">
@@ -62,23 +69,24 @@
                      echo "<td>$data[phone]</td>";
                      echo "<td>$data[email]</td>" ;
                      echo "<th scope=\"row\" class=\"action-buttons\">
-                              <form action=\"./update_mahasiswa.php\" method=\"post\">
+                              <form action=\"./updatepenulis.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
-                                 <button type=\"submit\" name=\"submit\" class=\"update-button\">
+                                 <button type=\"submit\" name=\"submit\" class=\"update-button\" value=\"Update\">
                                     <i class=\"fa-solid fa-pen-to-square\"></i>
                                     &nbsp; Update
                                  </button>
                               </form>
-                              <form action=\"./delete_mahasiswa.php\" method=\"post\">
+                              <form action=\"./hapuspenulis.php\" method=\"post\">
                                  <input type=\"hidden\" name=\"id\" value=\"$data[id]\">
-                                 <button type=\"submit\" name=\"submit\" class=\"delete-button\">
+                                 <button type=\"submit\" name=\"submit\" class=\"delete-button\" value=\"Delete\">
                                     <i class=\"fa-solid fa-trash\"></i>
                                     &nbsp; Delete
                                  </button>
                               </form>
                            </th>";
                      echo "</tr>";
-                        $i++;
+                     
+                     $i++;
                   }
                      
                   mysqli_free_result($result);

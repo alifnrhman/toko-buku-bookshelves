@@ -8,6 +8,10 @@ A CRUD project with session and cookies, created using PHP.
 
 ## Changelogs
 
+-  v1.3 (11/11/2024)
+   -  [ADD] Tambah, Update, Hapus penulis function
+   -  [ADD] Tambah, Update, Hapus publisher function
+   -  [FIX] Minor fixes
 -  v1.2 (11/11/2024)
    -  [ADD] Hapus buku function
    -  [ADD] Tambah buku function
